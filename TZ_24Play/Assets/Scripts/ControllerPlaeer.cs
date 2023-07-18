@@ -11,8 +11,8 @@ public class ControllerPlaeer : MonoBehaviour
     private float MaxPisitionX = 2;
     void Update()
     {
-        //Controller();
-        Controller2();
+        Controller();
+      //  Controller2();
     }
 
     private void Controller()

@@ -17,8 +17,9 @@ public class SpawnTrack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
+        spawnTrack();
+        SpawnPersKubs();
+        spawnPregrads();
     }
 
     // Update is called once per frame
@@ -62,24 +63,30 @@ public class SpawnTrack : MonoBehaviour
     void spawnPregrads()
     {
         GameObject Pregrads;
+        bool start = true;
         int numbeCubes = 0;
+
+        int Cubes3 = Random.Range(-2, 3);
         for (int i = -2; i < 3; i++)
         {
-            numbeCubes = Random.Range(1, 5);
+            if (Cubes3 == i)
+                numbeCubes = 2;
+            else
+                numbeCubes = Random.Range(1, 5);
             for (int j = 0; j < numbeCubes; j++)
             {
                 Vector3 kub = new Vector3(i, j, PositoinTracspawn);
-                Pregrads = Instantiate(Kub, kub, Quaternion.identity)as GameObject;
+                Pregrads = Instantiate(Kub, kub, Quaternion.identity) as GameObject;
                 Pregrads.transform.SetParent(parentalPregradKub);
             }
         }
     }
 
-    void SpawnPersKubs()
+        void SpawnPersKubs()
     {
         GameObject KubYellows;
         int distance = 0;
-        for (int i = 0; i < Random.Range(4,5); i++)
+        for (int i = 0; i < Random.Range(3,4); i++)
         {
             distance += 2;
             Vector3 kub = new Vector3(Random.Range(-2, 2), 0.5f, PositoinTracspawn + 10 + distance);

@@ -6,17 +6,16 @@ using UnityEngine.UIElements;
 
 public class StartGame : MonoBehaviour
 {
-    private float PositionY = 4;
+    public float speed = 4;
     public GameObject TapTopPlay;
     public bool StartGame1 = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
+   
+    void Update()
+    { 
+            startGame(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void startGame()
     {
         if (Input.touchCount > 0)
         {
@@ -26,16 +25,9 @@ public class StartGame : MonoBehaviour
         }
         if (StartGame1 == true)
         {
-           // startGame();
+            Vector3 Run = new Vector3(0, 0, 4) * speed * Time.deltaTime;
+            transform.position += Run;
         }
     }
-
-    /*
-    public void startGame()
-    {
-        TapTopPlay.SetActive(false);
-        Vector3 Run = new Vector3(0, 0, PositionY) * 4 * Time.deltaTime;
-        transform.position += Run;
-    }
-    */
+    
 }
